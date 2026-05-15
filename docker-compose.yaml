@@ -1,0 +1,10 @@
+services:
+  homepagesite:
+    container_name: homepagesite
+    image: ghcr.io/robertkeres/homepagesite:latest
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    volumes:
+      - ./data:/data
+networks: {}

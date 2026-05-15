@@ -4,19 +4,34 @@ Self-hosted homepage dashboard: React SPA with Obsidian-inspired minimal UI, dra
 
 ## Quick start (GitHub + Docker Compose)
 
+### Option A: Pull image from GHCR (no build)
+
+```bash
+mkdir -p data
+docker compose -f docker-compose.yaml up -d
+```
+
+Image: **`ghcr.io/robertkeres/homepagesite:latest`** (published from this repo’s GitHub Actions).
+
+Open **[http://localhost:8080](http://localhost:8080)**. Config is saved in **`./data`**.
+
+### Option B: Build locally
+
 ```bash
 git clone https://github.com/<your-username>/HomePageSite.git
 cd HomePageSite
 docker compose up --build -d
 ```
 
+Uses **`docker-compose.yml`** (builds from the Dockerfile in this repo).
+
 Open **[http://localhost:8080](http://localhost:8080)** (HTTP only, not HTTPS).
 
 - Config is stored in **`./data`** on the host (`config.json` and optional `data/profiles/…`).
-- Stop: `docker compose down`
-- Rebuild after updates: `docker compose up --build -d`
+- Stop: `docker compose down` (add `-f docker-compose.yaml` if you used Option A).
+- Rebuild after updates (Option B): `docker compose up --build -d`
 
-Optional: copy [`.env.example`](.env.example) to `.env` and set `CONFIG_TOKEN` for API protection.
+Optional: set **`CONFIG_TOKEN`** in `.env` for API protection (see `.env.example`).
 
 ### Publish to GitHub
 
