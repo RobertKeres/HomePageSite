@@ -31,9 +31,14 @@ jobs:
           images: ghcr.io/${{ github.repository }}
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{version}}
             type=ref,event=branch
             type=ref,event=tag
             type=sha,prefix=
+          labels: |
+            org.opencontainers.image.title=HomePageSite
+            org.opencontainers.image.description=Self-hosted homepage dashboard with grid widgets
+            org.opencontainers.image.source=${{ github.repositoryUrl }}
 
       - name: Build and push
         uses: docker/build-push-action@v6

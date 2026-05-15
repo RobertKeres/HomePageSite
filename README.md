@@ -11,9 +11,9 @@ mkdir -p data
 docker compose -f docker-compose.yaml up -d
 ```
 
-Image: **`ghcr.io/robertkeres/homepagesite:latest`** (published from this repo’s GitHub Actions).
+Image: **`ghcr.io/robertkeres/homepagesite:1.0.1`** (also **`latest`** on `main`; published by GitHub Actions).
 
-Open **[http://localhost:8080](http://localhost:8080)**. Config is saved in **`./data`**.
+Open **[http://localhost:8082](http://localhost:8082)**. Config is saved in **`./data`**.
 
 ### Option B: Build locally
 
