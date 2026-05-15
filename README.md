@@ -18,6 +18,22 @@ Open **[http://localhost:8080](http://localhost:8080)** (HTTP only, not HTTPS).
 
 Optional: copy [`.env.example`](.env.example) to `.env` and set `CONFIG_TOKEN` for API protection.
 
+### Publish to GitHub
+
+From the repo root (after `git config user.name` / `user.email` if this is your first commit):
+
+```bash
+# Install GitHub CLI once: sudo apt install gh && gh auth login
+./scripts/publish-github.sh HomePageSite public
+```
+
+Or manually:
+
+```bash
+git remote add origin https://github.com/<your-username>/HomePageSite.git
+git push -u origin main
+```
+
 ## Run with Docker
 
 ### With Docker Compose (recommended)
