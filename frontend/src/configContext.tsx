@@ -11,6 +11,7 @@ import {
 import type { AppConfig, Widget, Workspace } from "./types";
 import { fetchConfig, saveConfig, saveConfigFlush } from "./api";
 import { normalizeConfig } from "./defaultConfig";
+import { randomUUID } from "./uuid";
 
 type Ctx = {
   config: AppConfig;
@@ -226,7 +227,7 @@ export function ConfigProvider({ children }: { children: ReactNode }) {
 
   const addWorkspace = useCallback(() => {
     if (!config) return;
-    const id = crypto.randomUUID();
+    const id = randomUUID();
     const n = config.workspaces.length + 1;
     setConfig({
       ...config,

@@ -1,5 +1,6 @@
 import type { AppConfig } from "./types";
 import { createDefaultConfig, normalizeConfig } from "./defaultConfig";
+import { randomBytes } from "./uuid";
 
 const TOKEN_KEY = "homepage_config_token";
 const PROFILE_KEY = "homepage_profile_id";
@@ -24,8 +25,7 @@ export function setProfileToken(token: string) {
 }
 
 export function generateProfileToken(): string {
-  const bytes = new Uint8Array(24);
-  crypto.getRandomValues(bytes);
+  const bytes = randomBytes(24);
   const b64 = btoa(String.fromCharCode(...bytes)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
   return `hp_${b64}`;
 }

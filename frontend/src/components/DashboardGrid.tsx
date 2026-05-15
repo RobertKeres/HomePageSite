@@ -11,6 +11,7 @@ import {
 import { useAppConfig } from "../configContext";
 import { GRID_COLUMNS } from "../gridConstants";
 import type { Widget } from "../types";
+import { randomUUID } from "../uuid";
 import { WidgetBody } from "../widgets/WidgetBody";
 
 type GridMetrics = { stepY: number; fillRows: number };
@@ -326,7 +327,7 @@ export function DashboardGrid() {
                 type="button"
                 onClick={() =>
                   pushWidget({
-                    id: crypto.randomUUID(),
+                    id: randomUUID(),
                     type: "header",
                     x: 0,
                     y: nextY(),
@@ -343,7 +344,7 @@ export function DashboardGrid() {
                 type="button"
                 onClick={() =>
                   pushWidget({
-                    id: crypto.randomUUID(),
+                    id: randomUUID(),
                     type: "iconLink",
                     x: 0,
                     y: nextY(),
@@ -360,7 +361,7 @@ export function DashboardGrid() {
                 type="button"
                 onClick={() =>
                   pushWidget({
-                    id: crypto.randomUUID(),
+                    id: randomUUID(),
                     type: "listLink",
                     x: 0,
                     y: nextY(),
@@ -382,7 +383,7 @@ export function DashboardGrid() {
                 type="button"
                 onClick={() =>
                   pushWidget({
-                    id: crypto.randomUUID(),
+                    id: randomUUID(),
                     type: "search",
                     x: 8,
                     y: nextY(),

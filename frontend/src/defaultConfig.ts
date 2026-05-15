@@ -1,5 +1,6 @@
 import type { AppConfig } from "./types";
 import { GRID_COLUMNS } from "./gridConstants";
+import { randomUUID } from "./uuid";
 
 function sanitizeIconWidgets(c: AppConfig): AppConfig {
   return {
@@ -64,7 +65,7 @@ export function createDefaultConfig(): AppConfig {
         name: "Default",
         widgets: [
           {
-            id: crypto.randomUUID(),
+            id: randomUUID(),
             type: "header",
             x: 0,
             y: 0,
@@ -74,7 +75,7 @@ export function createDefaultConfig(): AppConfig {
             fontSize: "2rem",
           },
           {
-            id: crypto.randomUUID(),
+            id: randomUUID(),
             type: "search",
             x: 8,
             y: 8,
